@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AlphaVisionX | AI Price Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="access_keys.js"></script>
+</head>
+<body>
+
+<div class="app-container">
+    <header>
+        <h1>AlphaVisionX</h1>
+        <p>AI-Powered Short-Term Market Analysis</p>
+    </header>
+
+    <section class="input-panel">
+        <label>Asset</label>
+        <input type="text" id="asset" placeholder="e.g. EUR/USD OTC, BTC OTC, GOLD OTC">
+
+        <label>Market Type</label>
+        <select id="market">
+            <option>Forex</option>
+            <option>Crypto</option>
+            <option>Stocks</option>
+            <option>Commodities</option>
+        </select>
+
+        <label>Preferred Expiry</label>
+        <select id="expiry">
+            <option value="1">1 Minute</option>
+            <option value="2">2 Minutes</option>
+            <option value="3">3 Minutes</option>
+        </select>
+
+        <button onclick="generateSignal()">Analyze Market</button>
+    </section>
+
+    <section class="output-panel">
+        <h2>Signal Output</h2>
+
+        <div class="signal-box">
+            <span id="signal">WAIT</span>
+        </div>
+
+        <div class="details">
+            <p>Asset: <span id="outAsset">—</span></p>
+            <p>Confidence: <span id="confidence">—</span></p>
+            <p>Expiry: <span id="outExpiry">—</span></p>
+        </div>
+    </section>
+
+    <section class="log-panel">
+        <h3>Trade Log (Simulation)</h3>
+        <ul id="tradeLog"></ul>
+    </section>
+
+    <footer>
+        <p>AlphaVisionX © 2026 • OTC-Optimized AI Framework</p>
+    </footer>
+</div>
+
+<script>
+/* ===============================
+   TEMP SIGNAL ENGINE (SIMULATION)
+   Backend AI will replace this
+================================ */
+
+function generateSignal() {
+    const asset = document.getElementById("asset").value || "Unknown Asset";
+    const expiry = document.getElementById("expiry").value;
+
+    // Simulated probability logic (placeholder for ML)
+    const buyProb = Math.random();
+    const sellProb = 1 - buyProb;
+
+    let signal = "WAIT";
+    let confidence = 0;
+
+    if (buyProb > sellProb && buyProb > 0.55) {
+        signal = "BUY";
+        confidence = buyProb;
+    } else if (sellProb > buyProb && sellProb > 0.55) {
+        signal = "SELL";
+        confidence = sellProb;
+    }
+
+    // UI updates
+    document.getElementById("signal").innerText = signal;
+    document.getElementById("signal").className = signal;
+    document.getElementById("outAsset").innerText = asset;
+    document.getElementById("confidence").innerText = confidence.toFixed(2);
+    document.getElementById("outExpiry").innerText = expiry + " MIN";
+
+    logTrade(asset, signal, confidence, expiry);
+}
+
+function logTrade(asset, signal, confidence, expiry) {
+    const log = document.getElementById("tradeLog");
+    const li = document.createElement("li");
+
+    li.innerText = `${new Date().toLocaleTimeString()} | ${asset} | ${signal} | ${confidence.toFixed(2)} | ${expiry}M`;
+    log.prepend(li);
+}
+</script>
+
+</body>
+</html>
