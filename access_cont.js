@@ -1,6 +1,6 @@
 //TESTING ACCESS CONTROL
 const allowedKeys = [
-    "AVX-CLIENT-1077"
+    "ATL-CLIENT-1077"
 ];
 
 const params = new URLSearchParams(window.location.search);
