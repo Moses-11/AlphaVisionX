@@ -1,14 +1,6 @@
-// ===== AlphaVisionX Access Control =====
-
+//TESTING ACCESS CONTROL
 const allowedKeys = [
-    "AVX-CLIENT-001",
-    "AVX-CLIENT-002",
-    "AVX-CLIENT-003",
-    "AVX-CLIENT-004",
-    "AVX-CLIENT-005",
-    "AVX-CLIENT-006",
-    "AVX-CLIENT-007",
-    "AVX-CLIENT-008"
+    "AVX-CLENT-10177",
 ];
 
 const params = new URLSearchParams(window.location.search);
