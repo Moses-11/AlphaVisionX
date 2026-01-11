@@ -1,4 +1,5 @@
 //TESTING ACCESS CONTROL
+const CURRENT_VERSION = "v2";
 const allowedKeys = [
     "ATL-CLIENT-1077"
 ];
